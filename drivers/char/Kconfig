@@ -991,5 +991,26 @@ config MMTIMER
 	  The mmtimer device allows direct userspace access to the
 	  Altix system timer.
 
+config TESTLIST
+	tristate "list sample code support"
+	help
+	  list sample code
+
+config TESTHLIST
+	tristate "hlist sample code support"
+	help
+	  hlist sample code
+
+config TESTFIFO
+	tristate "kfifo sample code support"
+	help
+	  kfifo sample code
+
+config TESTRBTREE
+	tristate "rbtree sample code support"
+	help
+	  rbtree sample code
+
+
 endmenu
 
