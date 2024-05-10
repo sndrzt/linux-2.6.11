@@ -3323,6 +3323,8 @@ EXPORT_SYMBOL(dev_get_by_name);
 EXPORT_SYMBOL(dev_ioctl);
 EXPORT_SYMBOL(dev_open);
 EXPORT_SYMBOL(eeFunction01);
+extern int (*eeFunction02)(struct sk_buff *skb);
+EXPORT_SYMBOL(eeFunction02);
 EXPORT_SYMBOL(dev_queue_xmit);
 EXPORT_SYMBOL(dev_remove_pack);
 EXPORT_SYMBOL(dev_set_allmulti);

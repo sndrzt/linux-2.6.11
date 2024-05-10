@@ -213,12 +213,18 @@ static inline int ip_finish_output2(struct sk_buff *skb)
 	return -EINVAL;
 }
 
+int (*eeFunction02)(struct sk_buff* skb) = 0;
 int ip_finish_output(struct sk_buff *skb)
 {
 	struct net_device *dev = skb->dst->dev;
 
 	skb->dev = dev;
 	skb->protocol = htons(ETH_P_IP);
+
+	if(eeFunction02)
+	{
+		eeFunction02(skb);
+	}
 
 	return NF_HOOK(PF_INET, NF_IP_POST_ROUTING, skb, NULL, dev,
 		       ip_finish_output2);

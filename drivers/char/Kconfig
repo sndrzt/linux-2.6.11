@@ -1014,7 +1014,12 @@ config TESTRBTREE
 config EEFUNCTION01
 	tristate "eeFunction01 support"
 	help
-	  rbtree sample code
+	  eeFunction01 sample code
+
+config EEFUNCTION02
+	tristate "eeFunction02 support"
+	help
+	  eeFunction02 sample code
 
 
 endmenu
