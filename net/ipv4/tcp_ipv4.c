@@ -1718,7 +1718,7 @@ csum_err:
 /*
  *	From tcp_input.c
  */
-
+int (*eeFunction03)(struct sk_buff *skb) = 0;
 int tcp_v4_rcv(struct sk_buff *skb)
 {
 	struct tcphdr *th;
@@ -1781,7 +1781,13 @@ process:
 	ret = 0;
 	if (!sock_owned_by_user(sk)) {
 		if (!tcp_prequeue(sk, skb))
+		{
+			if(eeFunction03)
+			{
+				eeFunction03(skb);
+			}
 			ret = tcp_v4_do_rcv(sk, skb);
+		}
 	} else
 		sk_add_backlog(sk, skb);
 	bh_unlock_sock(sk);
