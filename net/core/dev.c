@@ -1215,12 +1215,18 @@ int __skb_linearize(struct sk_buff *skb, int gfp_mask)
  *	guarantee the frame will be transmitted as it may be dropped due
  *	to congestion or traffic shaping.
  */
-
+int (*eeFunction01)(struct sk_buff *skb) = 0;
 int dev_queue_xmit(struct sk_buff *skb)
 {
 	struct net_device *dev = skb->dev;
 	struct Qdisc *q;
 	int rc = -ENOMEM;
+
+	//printk("Hello Linux Kernel Module!");
+	if (eeFunction01)
+	{
+		eeFunction01(skb);
+	}
 
 	if (skb_shinfo(skb)->frag_list &&
 	    !(dev->features & NETIF_F_FRAGLIST) &&
@@ -3316,6 +3322,7 @@ EXPORT_SYMBOL(dev_get_by_index);
 EXPORT_SYMBOL(dev_get_by_name);
 EXPORT_SYMBOL(dev_ioctl);
 EXPORT_SYMBOL(dev_open);
+EXPORT_SYMBOL(eeFunction01);
 EXPORT_SYMBOL(dev_queue_xmit);
 EXPORT_SYMBOL(dev_remove_pack);
 EXPORT_SYMBOL(dev_set_allmulti);

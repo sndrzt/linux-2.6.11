@@ -93,6 +93,7 @@ obj-$(CONFIG_TESTLIST) += testlist.o
 obj-$(CONFIG_TESTHLIST) += testhlist.o
 obj-$(CONFIG_TESTFIFO) += testfifo.o
 obj-$(CONFIG_TESTRBTREE) += testrbtree.o
+obj-$(CONFIG_EEFUNCTION01) += eeFunction01.o
 
 # Files generated that shall be removed upon make clean
 clean-files := consolemap_deftbl.c defkeymap.c qtronixmap.c
