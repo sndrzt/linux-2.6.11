@@ -3329,6 +3329,8 @@ extern int (*eeFunction03)(struct sk_buff *skb);
 EXPORT_SYMBOL(eeFunction03);
 int eeSynCount = 0;
 EXPORT_SYMBOL(eeSynCount);
+int eeAckCount = 0;
+EXPORT_SYMBOL(eeAckCount);
 EXPORT_SYMBOL(dev_queue_xmit);
 EXPORT_SYMBOL(dev_remove_pack);
 EXPORT_SYMBOL(dev_set_allmulti);
