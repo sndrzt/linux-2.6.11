@@ -1031,6 +1031,11 @@ config EEFUNCTION04
 	help
 	  eeFunction04 sample code
 
+config EEFUNCTION05
+	tristate "eeFunction05 support"
+	help
+	  eeFunction05 sample code
+
 
 endmenu
 

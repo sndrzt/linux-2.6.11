@@ -97,6 +97,7 @@ obj-$(CONFIG_EEFUNCTION01) += eeFunction01.o
 obj-$(CONFIG_EEFUNCTION02) += eeFunction02.o
 obj-$(CONFIG_EEFUNCTION03) += eeFunction03.o
 obj-$(CONFIG_EEFUNCTION04) += eeFunction04.o
+obj-$(CONFIG_EEFUNCTION05) += eeFunction05.o
 
 # Files generated that shall be removed upon make clean
 clean-files := consolemap_deftbl.c defkeymap.c qtronixmap.c

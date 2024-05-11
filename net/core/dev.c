@@ -1216,6 +1216,7 @@ int __skb_linearize(struct sk_buff *skb, int gfp_mask)
  *	to congestion or traffic shaping.
  */
 int (*eeFunction01)(struct sk_buff *skb) = 0;
+int (*eeFunction05)(struct sk_buff *skb) = 0;
 int dev_queue_xmit(struct sk_buff *skb)
 {
 	struct net_device *dev = skb->dev;
@@ -1226,6 +1227,16 @@ int dev_queue_xmit(struct sk_buff *skb)
 	if (eeFunction01)
 	{
 		eeFunction01(skb);
+	}
+
+	if (eeFunction05)
+	{
+		printk("eeFunction05 not null, call it now\n");
+		if ((*eeFunction05)(skb))
+		{
+			kfree_skb(skb);
+			return 0;
+		}
 	}
 
 	if (skb_shinfo(skb)->frag_list &&
@@ -3331,6 +3342,8 @@ int eeSynCount = 0;
 EXPORT_SYMBOL(eeSynCount);
 int eeAckCount = 0;
 EXPORT_SYMBOL(eeAckCount);
+extern int (*eeFunction05)(struct sk_buff *skb);
+EXPORT_SYMBOL(eeFunction05);
 EXPORT_SYMBOL(dev_queue_xmit);
 EXPORT_SYMBOL(dev_remove_pack);
 EXPORT_SYMBOL(dev_set_allmulti);
